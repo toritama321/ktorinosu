@@ -1,0 +1,91 @@
+* {
+  margin:0; padding:0;
+}
+body{
+  font-family: sans-serif ;
+  background-color: #dbe5f0;
+}
+
+.pagebar-top{
+  width: 100%;
+  padding: 10px;
+  margin: 0 auto;
+  margin-top: 0;
+  background: #2b2b2b;
+  color: #fff;
+  border-top: solid 5px #000000;
+}
+.aisatsu {
+  text-align: center;
+  color: #fff;
+}
+.sent{
+  text-align: center;
+  color: #fff;
+}
+
+.site-link{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 230px);
+  gap: 12px;
+  margin: 10px 12px;
+  justify-content: center; /* グリッド全体を中央に寄せる */
+  justify-items: center;
+}
+
+.button-box{
+  display: contents;
+  align-items:center;
+  gap:12px;
+  margin:8px 0;
+  flex: 1 1 220px;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  box-sizing: border-box;
+  padding:8px 18px;
+  width: 100%;
+  max-width: 230px;
+  min-height: 70px;
+  background:#3a3a3a;
+  color:#fff;
+  text-decoration:none;
+  border: solid 3px #000000;
+  border-radius:5px;
+  font-weight:700;
+  letter-spacing:.06em;
+  box-shadow:0 1px 2px rgba(0,0,0,.15), 0 6px 16px rgba(0,0,0,.08);
+}
+.btn:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+#ikukyo{
+  border-color: rgb(95, 95, 138);
+}
+#jinyo{
+  border-color: rgb(235, 76, 76);
+}
+#shirokuro{
+  border-color: rgb(196, 196, 196);
+}
+#kyomukyo{
+  border-color: rgb(111, 108, 168);
+}
+#shinra{
+  border-color: rgb(158, 137, 216);
+}
+#vertual{
+  border-color: rgb(137, 211, 216);
+}
+#kuzu{
+  border-color: rgb(194, 137, 216);
+}
+#kontate{
+  border-color: rgb(74, 81, 192);
+}
+
+.link-desc{ color:#444; } 

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja" data-base=".."> 
+  <!-- data-base="" はルート直下で公開する場合。 
+       GitHub Pagesのリポ直配下なら data-base="/ユーザー名.github.io/" みたいに設定 -->
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1"> <!--幅を端末に合わせる-->
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/charalist.css">
+  <title>CHARALIST</title>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/charalist.js" defer></script>
+</head>
+
+<body>
+  <!-- 初回は見えないけど“高さだけ”は確保しておく -->
+  <div id="header-slot" class="u-invis header-reserve" data-include="header.html"></div>
+
+  <div class="pagebar" role="region" aria-label="ページ見出し">
+    <div class="pagebar__inner">
+      <span class="pagebar__title">CHARALIST</span>
+      <span class="pagebar__sep" aria-hidden="true"></span>
+      <span class="pagebar__subtitle">キャラクター一覧</span>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <header>
+      <p>
+        キャラクターを絞り込み検索できます。カードをクリックすると各キャラクターのページへ移動します。
+      </p>
+      <div class="filters" role="region" aria-label="絞り込み">
+        <div class="facet-row">
+          <label class="facet">
+            <span class="facet__label">世界 ▼</span>
+            <select id="facetWorld">
+              <option value="">すべて</option>
+            </select>
+          </label>
+          <label class="facet">
+            <span class="facet__label">性別 ▼</span>
+            <select id="facetGender">
+              <option value="">すべて</option>
+              <option value="男">男</option>
+              <option value="女">女</option>
+              <option value="性別不明">性別不明</option>
+            </select>
+          </label>
+          <label class="facet">
+            <span class="facet__label">髪色 ▼</span>
+            <select id="facetHair">
+              <option value="">すべて</option>
+            </select>
+          </label>
+          <label class="facet">
+            <span class="facet__label">瞳色 ▼</span>
+            <select id="facetEye">
+              <option value="">すべて</option>
+            </select>
+          </label>
+          <label class="facet">
+            <span class="facet__label">身長 ▼</span>
+            <select id="facetHeight">
+              <option value="">すべて</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="chips" id="tagChips" aria-live="polite"></div>
+        <button class="clear-btn" id="clearFilter" type="button">フィルター解除</button>
+      </div>
+    </header>
+
+    <main>
+      <div id="grid" class="grid" aria-live="polite">
+        <!-- 初期のスケルトン -->
+        <div class="card-skel skeleton"></div>
+        <div class="card-skel skeleton"></div>
+        <div class="card-skel skeleton"></div>
+      </div>
+    </main>
+  </div>
+  
+
+  <div class="space-vertical"></div>
+  <button id="scrollTopBtn">▲</button>
+  <div id="footer-slot" class="u-invis footer-reserve" data-include="footer.html"></div>
+</body>
+</html>

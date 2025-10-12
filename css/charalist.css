@@ -1,0 +1,192 @@
+* {
+  margin:0; padding:0;
+}
+
+:root {
+  --bg: #dbe5f0;
+  --chip-bg: #ECEEF7;
+  --chip-on: #0f103b;
+  --chip-on-text: #fff;
+  --card-bg: #ffffff;
+  --namebar-bg: rgba(0, 0, 0, 0.521);
+  --namebar-text: #f0f0f0;
+  --border: rgba(0,0,0,.08);
+}
+html, body {
+  height: 100%; 
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: #222;
+  font-family: sans-serif ;
+}
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 16px 64px;
+}
+header h1 {
+  margin: 5px;
+  font-size: 24px;
+  letter-spacing: .02em;
+}
+header p {
+  margin: 5px;
+  color: #ffffff; 
+}
+
+/* フィルターUI　##################################################################### */
+.filters {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  margin: 12px 0 14px;
+}
+.chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 1em;
+}
+.chip {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: var(--chip-bg);
+  color: #353535;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  transition: transform .05s ease, background .2s;
+}
+.chip[aria-pressed="true"] {
+  background: var(--chip-on);
+  color: var(--chip-on-text);
+  border-color: transparent;
+}
+.chip:active {
+  transform: translateY(1px);
+}
+.clear-btn {
+  margin: 1em;
+  padding: 0.5em;
+  background: #eeeeee;
+  border-radius: 200px;
+  text-decoration: none;
+  cursor: pointer;
+  color: #2b2b2b;
+  font-size: 16px;
+}
+
+/* プルダウン #######################################################################*/
+.facet-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.facet {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 10px;
+}
+.facet__label {
+  font-size: 13px;
+  color: #ffffff;
+}
+.facet select {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: #fff;
+  border-radius: 10px;
+  padding: 6px 10px;
+  font-size: 14px;
+}
+
+/* グリッド #####################################################################*/
+.grid {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  align-items: stretch;
+}
+
+/* カード #####################################################################*/
+.char-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-end;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--card-bg);
+  box-shadow: 0 1px 2px rgba(0,0,0,.05);
+  border: 1px solid var(--border);
+}
+.char-card button {
+  all: unset;
+  display: contents; 
+}
+.char-img {
+  aspect-ratio: 4 / 5;
+  background: #fafafa;
+  display: grid;
+  place-items: center; 
+}
+.char-img img {
+  max-width: 95%;
+  max-height: 95%;
+  transform: scale(1.2);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.namebar {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 6px;
+  align-items: center;
+  padding: 8px 10px;
+  background: var(--namebar-bg);
+  color: var(--namebar-text);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: saturate(1.2) blur(0.5px);
+}
+.namebar .name {
+  font-weight: 500;
+  letter-spacing: .04em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+}
+.namebar .arrow {
+  opacity: .9;
+  font-size: 14px;
+}
+
+.hidden { display: none !important; }
+
+/* スケルトン */
+.skeleton {
+  background: linear-gradient(90deg, #eee, #f6f6f6, #eee);
+  background-size: 200% 100%;
+  animation: sk 1.2s infinite linear; 
+}
+@keyframes sk { 0% { background-position: 0 0; } 100% { background-position: -200% 0; } }
+.card-skel { border-radius: 14px; aspect-ratio: 4/5; }
+
+@media (max-width: 640px) {
+  .filters { grid-template-columns: 1fr; }
+}

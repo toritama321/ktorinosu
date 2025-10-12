@@ -1,0 +1,357 @@
+* {
+  margin:0; padding:0;
+}
+body{
+  font-family: sans-serif ;
+  background-color: #dbe5f0;
+}
+
+.pagebar{
+  width: 100%;
+  padding: 10px;
+  margin: 0 auto;
+  margin-top: 0;
+  background: #2b2b2b;
+  color: #fff;
+  border-top: solid 5px #000000;
+}
+
+/* === キャラ ==================================================== */
+/* 見出し帯 */
+.char-group{
+  width: 80%;
+  background:#333;
+  color:#fff;
+  padding:.4em .8em;
+  border-radius:6px;
+  margin: 24px auto;
+}
+
+/* グリッド配置 */
+.char-grid{
+  display: grid;
+  gap: 12px 10px;  /* 行間12px / 列間10px*/
+  margin: 0 auto;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  max-width: calc(120px * 5 + 12px * 4); /* ← 4列に制限したい場合 */
+}
+
+/* アイコン */
+.char {
+  width: 120px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.char-img{
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  border-radius: 10%;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,.25);
+}
+.char-img img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display:block; width:100%; height:100%;
+  object-fit: cover;
+}
+.char:hover img,
+.char:focus-visible img{
+  transform: translateY(-0.5px);
+  box-shadow: 0 4px 8px rgba(0,0,0,.22);
+}
+.char-name {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;       /* インラインだと幅が伸びないのでブロックにする */
+  white-space: normal;  /* nowrap になってると折り返さないので必ず normal */
+  word-break: break-word; /* 長い単語でも無理やり折る */
+}
+
+/* モーダル ==================================================== */
+.modal[hidden]{ 
+  display:none 
+}
+.modal{ 
+  position:fixed;
+  inset:0;
+  z-index:999; 
+  padding: 12px;
+  place-items: start center;
+}
+.modal__overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  backdrop-filter: blur(2px);
+  touch-action: none;
+}
+.modal__dialog{
+  position:relative;
+  max-width:720px;
+  width: min(960px, 96vw);
+  max-height: min(90svh, 800px);
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  margin: 8vh auto 0;
+  background:#dbe5f0;
+  border-radius:12px;
+  padding:16px;
+  box-shadow:0 20px 50px rgba(0,0,0,.35);
+  animation: pop .12s ease;
+}
+@keyframes pop{ 
+  from{ transform: translateY(6px); opacity:0 } to{ transform: none; opacity:1 } 
+}
+
+.modal__content{
+  overflow: auto;                 /* ← ここがスクロール領域 */
+  -webkit-overflow-scrolling: touch; /* iOSスムーズスクロール */
+  overscroll-behavior: contain;   /* バウンスで背景に伝播しない */
+  padding: 8px 4px;
+  scroll-padding-top: 12px;
+}
+.modal__close{
+  position:absolute;
+  top:8px;
+  right:8px;
+  border:0;
+  background:#000;
+  color:#fff;
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:18px;
+  line-height:32px;
+}
+.modal__body{ 
+  display:flex;
+  gap:16px;
+  align-items:flex-start 
+}
+.modal__body img{ 
+  border-radius:50%;
+  border:4px solid #fff;
+  box-shadow:0 2px 6px rgba(0,0,0,.2) ;
+}
+.modal__text h3{ 
+  margin:4px 0 6px;
+  font-size:1.25rem 
+}
+.modal__text .sub{ 
+  color:#666;
+  margin:0 0 8px 
+}
+.tags{ 
+  color:#4a4a4a;
+  font-size:.9rem 
+}
+.tags::before{ 
+  content:"タグ: ";
+  color:#888 
+}
+#pImg{
+  transform: scale(1.1);
+}
+
+/* スマホ調整 */
+@media (max-width: 560px){
+  .modal__dialog{
+    margin: 4vh 12px 0; 
+  }
+  .modal__body{ 
+    flex-direction: column;
+    align-items:center;
+    text-align:center 
+  }
+}
+.modal{
+  overscroll-behavior: none;
+}
+body.no-scroll{ 
+  overflow: hidden; 
+} /* モーダル開時スクロール抑制 */
+
+/* ====== Profile layout ======================================================================== */
+:root{
+  --profile-accent:#303030;   /* 見出し色 */
+  --profile-ink:#333;
+  --profile-muted:#3a3a3a;
+  --profile-paper:#fff;
+}
+
+.profile{ color:var(--profile-ink); }
+.profile__header{
+  display:grid;
+  grid-template-columns: 280px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+.profile__portrait img{
+  display:block;
+  width:100%;
+  height:auto;
+  margin-top: 10%;
+}
+.profile__name-ja{
+  margin:0 0 2px; font-size: 2rem; font-weight: 800; letter-spacing:.02em;
+}
+.profile__name-en{
+  color: var(--profile-muted); font-size: 1.2rem; margin-bottom: 12px; font-weight:700;
+}
+.profile__label{
+  margin: 0 0 6px; color: var(--profile-muted); font-weight: 800; letter-spacing:.04em;
+}
+.profile__dl{
+  display: grid;
+  gap: 8px;
+  background: var(--profile-paper);
+  padding: 10px 12px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.12);
+}
+.profile__dl > div{
+  display: grid;
+  grid-template-columns: 4em 1fr; /* ← ラベル幅は好みで（例: 6em） */
+  column-gap: 12px;
+  align-items: baseline;
+}
+.profile__dl dt{
+  color: var(--profile-muted);
+  font-weight: 700;
+  white-space: nowrap;      /* コロン側を折り返さない */
+}
+
+.profile__dl dd{
+  margin: 0;                /* デフォルト余白を消す */
+  min-width: 0;             /* 長文が来た時に折り返せるように */
+  word-break: break-word;   /* 英数が長いときの溢れ対策 */
+}
+
+/* 区切り線 */
+.profile__divider{
+  border:0; border-top:2px solid rgba(0,0,0,.35);
+  margin: 20px 0;
+}
+
+/* 下段カード（概要） */
+.section-card{
+  margin-top: 15px;
+}
+.section-card__title{
+  margin:0;
+  display:inline-block;
+  background: var(--profile-accent); color:#fff;
+  padding: .45em .8em; border-radius: 8px 8px 0 0;
+  font-weight: bold; letter-spacing:.04em;
+  box-shadow: 0 2px 0 rgba(0,0,0,.25);
+}
+.section-card__body{
+  background: var(--profile-paper);
+  border-radius: 0 8px 8px 8px;
+  border: solid 1px var(--profile-accent);
+  padding: 14px 16px;
+  line-height: 1.9;
+}
+
+/* スマホ調整 */
+@media (max-width: 720px){
+  .profile__header{ grid-template-columns: 1fr; }
+  .profile__portrait{ justify-self: center; }
+  .profile__portrait img{ width:220px }
+}
+
+.modal__content,
+.profile__header,
+.section-card__body,
+.gallery {
+  min-width: 0;
+}
+/* ====== ギャラリー ======================================================================== */
+.gallery{ width:100%; display:grid; gap:14px; }
+.stage{
+  position: relative;      /* 画像と矢印を重ねる土台 */
+  aspect-ratio: 16 / 9;    /* ここはお好みの比率でOK */
+  overflow: hidden;        /* はみ出しは隠す */
+  margin: 20px 0 0 0;
+  padding: 0;
+  box-sizing: border-box;  /* 境界計算を安定させる */
+}
+#photo{
+  position: absolute;
+  inset: 0;                /* top/right/bottom/left: 0; と同じ */
+  width: 100%;
+  height: 100%;
+  object-fit: contain;     /* 全体が見えるように収める */
+  object-position: center; /* 中央寄せ */
+  display: block;          /* インラインのベースライン隙間を消す */
+  margin: 0;               /* 念のため */
+}
+.arrow-btn{
+  position:absolute;
+  top:50%;
+  translate:0 -50%;
+  display:grid;
+  place-items:center;
+  width:46px;
+  height:46px;
+  border-radius:999px;
+  border:solid 1px #646464;
+  cursor:pointer;
+  user-select:none;
+  background:var(--btn-bg);
+  color:var(--text);
+  box-shadow:0 2px 8px rgba(0,0,0,.25);
+  transition: transform .08s ease, background .15s ease, box-shadow .15s ease;
+}
+.arrow-btn:hover{ background:var(--btn-bg-hover); }
+.arrow-btn:active{ transform: scale(.98) translateY(0); }
+.arrow-btn svg{ width:22px; height:22px; }
+
+.prev{ left:12px; }
+.next{ right:12px; }
+
+.meta{ display:flex; justify-content:space-between; align-items:baseline; gap:12px; padding-inline:6px; }
+.title{ font-weight:700; font-size:clamp(16px, 2.3vw, 22px); }
+.caption{ color:var(--muted); font-size:clamp(13px, 1.8vw, 16px); }
+
+.dots{ display:flex; gap:8px; justify-content:center; align-items:center; padding:4px 0 10px; }
+.dot{ width:8px; height:8px; border-radius:999px; background:#475569; opacity:.55; transition:opacity .2s ease, transform .2s ease, background .2s ease; }
+.dot.active{ opacity:1; background:#7dadf1; transform:scale(1.25); }
+
+/* スワイプのヒットエリア拡大（モバイルで押しやすく） */
+@media (max-width: 640px){
+  .arrow-btn{ width:54px; height:54px; }
+  .stage{ aspect-ratio: 3 / 2; min-height: 40vh; }
+  .modal-panel{ width: 100vw; }
+  .stage{
+    aspect-ratio: auto;                 /* 比率固定を解除して */
+    height: min(30dvh, 30svh);          /* 画面高の7割に収める */
+  }
+  .arrow-btn{
+    width: 44px; height: 44px;          /* 指で押しやすいサイズ */
+    top: 50%; transform: translateY(-50%);
+  }
+  .arrow-btn.prev{ left: 6px; }
+  .arrow-btn.next{ right: 6px; }
+}

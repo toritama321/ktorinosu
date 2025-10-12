@@ -1,0 +1,192 @@
+@charset "utf-8";
+
+/* 1) 横スクロールを基本的に封じる */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* 2) はみ出し計算を安定化（padding/境界含める） */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* 3) ヘッダー/フッター/帯などは 100% 幅に（100vwは禁止） */
+header, footer, .pagebar, nav, .container, .modal, .modal__overlay, .modal__dialog {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* 4) 画像・表・SVGは親からはみ出さない */
+img, svg, canvas, video, table {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 5) フレックス/グリッド内の“横に膨らむ子”を抑える */
+.nav-list > *, .tabs__list > *, .char-grid > * {
+  min-width: 0; /* これが無いと長いテキストで横に広がる */
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+/*#########################################################################################*/
+header {
+  width: 100%;
+  padding: 0px 0;
+  margin: 0 auto;
+  margin-bottom: 0;
+  text-align: center;
+  background-color: #3a3a3a;
+  header .headline { font-size: clamp(24px, 3vw, 35px); }
+  .container { padding: clamp(12px, 2vw, 24px); }
+}
+/* まずは“見えないけど場所は取る” */
+.u-invis { visibility: hidden; }
+
+/* だいたいのヘッダー高さを先に確保（自分のヘッダーの実寸に合わせて調整） */
+.header-reserve { min-height: 96px; }   /* ここ重要：CLS防止の要 */
+.footer-reserve { min-height: 60px; }
+
+/* 差し込み済みフラグが付いたら表示させる */
+.is-ready { visibility: visible; }
+
+/* 余裕があればスケルトン */
+.header-reserve::before {
+  content:"";
+  display:block;
+  height:100%;
+  background: linear-gradient(90deg, #eceff3 0%, #f5f7fa 50%, #eceff3 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1s linear infinite;
+  border-radius: 8px;
+  opacity: .35;
+}
+.is-ready.header-reserve::before { display:none; }
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.rogo{
+  margin: 10px;
+  width: 100px;
+  height: auto;
+}
+header .headline{
+  font-size: 50px;
+}
+.nav-list {
+  width: 100%;
+  gap: clamp(8px, 2vw, 24px);
+  flex-wrap: wrap;
+  text-align: center;
+  padding: 0.2em 1em;
+  margin: 0;
+  color: #000000;
+  text-decoration: none;
+  background: white;
+  border-top: solid 5px #5d627b;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+.nav-list-item {
+  list-style: none;
+  display: inline-block;
+  margin: 0 10px;
+  font-weight: 700;
+}
+.nav-list a {
+  display: block;         /* aタグをブロック化して領域全体を取る */
+  padding: 10px 16px;     /* 上下10px, 左右16px の余白 */
+  text-decoration: none;
+}
+.nav-list a.is-active {
+  color: white;
+  font-weight: 900;
+  background-color: #5d627b;
+}
+
+footer {
+  width: 100%;
+  padding: 10px;
+  margin: 0 auto;
+  margin-bottom: 0;
+  background-color: #3a3a3a;
+}
+.footer_text{
+  text-align: center;
+  color: white;
+}
+/*#########################################################################################*/
+/* === 黒い帯（ページ見出しバー） ========================= */
+.pagebar{
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 0;
+  background: #4a4a4a;            /* 好みで #3a3a3a ～ #555 でも */
+  color: #fff;
+}
+.pagebar__inner{
+  max-width: 1100px;               /* サイトのcontainer幅に合わせて */
+  margin: 0 auto;
+  padding: clamp(10px, 2.5vw, 16px) clamp(12px, 3vw, 24px);
+  display: flex;
+  align-items: center;
+  justify-content: center;         /* 中央寄せ */
+  gap: clamp(10px, 2vw, 24px);     /* 「ABOUT」とサブの間隔 */
+  text-align: center;
+  flex-wrap: wrap;                  /* 画面が狭い時は折り返して縦並び */
+}
+.pagebar__title{
+  font-weight: 900;
+  letter-spacing: .05em;
+  font-size: clamp(18px, 3vw, 28px);
+}
+.pagebar__subtitle{
+  color: #ffffff;
+  font-size: clamp(12px, 2.2vw, 16px);
+  opacity: .95;
+}
+/* 区切り（細い縦線風） */
+.pagebar__sep{
+  width: 1px;
+  height: 1.2em;
+  background: linear-gradient(#dcdcdc, #9a9a9a);
+  display: inline-block;
+  opacity: .8;
+}
+
+/* === ボックス ========================= */
+.box{
+  padding: 30px 25px;
+  margin: 20px 20% 0px;
+  background: white;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+  border-radius: 10px;/*角の丸み*/
+}
+
+/* === 空白 ========================= */
+.space-vertical {
+  margin: 50px 0;
+}
+
+/* === ページ上部に戻るボタン ========================= */
+#scrollTopBtn {
+  position: fixed;      /* 画面に固定 */
+  bottom: 20px;         /* 下から20px */
+  right: 20px;          /* 右から20px */
+  width: 50px;
+  height: 50px;
+  border: solid 2px white;
+  border-radius: 50%;   /* 丸くする */
+  background: #333;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;        /* 最初は非表示 */
+  z-index: 9999;
+}
+
+/* ホバーしたら色変わる */
+#scrollTopBtn:hover {
+  background: #555;
+}

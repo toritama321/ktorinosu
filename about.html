@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja" data-base=""> 
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1"> <!--幅を端末に合わせる-->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/about.css">
+  <title>ABOUT</title>
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+  <!-- 初回は見えないけど“高さだけ”は確保しておく -->
+  <div id="header-slot" class="u-invis header-reserve" data-include="header.html"></div>
+
+  <div class="pagebar" role="region" aria-label="ページ見出し">
+    <div class="pagebar__inner">
+      <span class="pagebar__title">ABOUT</span>
+      <span class="pagebar__sep" aria-hidden="true"></span>
+      <span class="pagebar__subtitle">このサイトについて</span>
+    </div>
+  </div>
+  
+  <div class="box">
+    <h2>このサイトは何？</h2>
+    <p>このサイトの作成者、鳥卵が参加している「企画」のキャラクターをまとめたサイトです。半分備忘録です。</p>
+  </div>
+  <div class="box">
+    <h2>うちの子の使用について</h2>
+    <p>このサイトに載っている私の子たちは、描いていただいたり、よその子と絡ませてもらったりは自由です。
+      キャラ崩壊も、キャラクターのイメージを大幅に損なわない程度なら、大歓迎です。<br>
+      キャラクター自体の著作権は鳥卵に属しますので、世間一般的に悪だと指摘されるような行為はご遠慮ください。</p>
+  </div>
+
+  <div class="space-vertical"></div>
+  <button id="scrollTopBtn">▲</button>
+  <div id="footer-slot" class="u-invis footer-reserve" data-include="footer.html"></div>
+</body>
+</html>

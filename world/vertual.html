@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja" data-base=".."> 
+  <!-- data-base="" はルート直下で公開する場合。 
+       GitHub Pagesのリポ直配下なら data-base="/ユーザー名.github.io/" みたいに設定 -->
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1"> <!--幅を端末に合わせる-->
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/worldbase.css">
+  <title>VERTUALCITY ONLINE</title>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/tabs.js" defer></script>
+</head>
+
+<body>
+  <!-- 初回は見えないけど“高さだけ”は確保しておく -->
+  <div id="header-slot" class="u-invis header-reserve" data-include="header.html"></div>
+
+  <div class="pagebar" role="region" aria-label="ページ見出し">
+    <div class="pagebar__inner">
+      <span class="pagebar__title">VERTUALCITY ONLINE</span>
+    </div>
+  </div>
+
+  <div id="panel-chars">
+    <section class="char-section" id="charRoot" data-json="../data/vertual.json">
+      <!-- JSで挿入 -->
+    </section>
+  </div>  
+
+  <!-- モーダル（ポップアップ） -->
+  <div class="modal" id="charModal" hidden>
+    <div class="modal__overlay" data-close></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="charTitle">
+      <button class="modal__close" type="button" aria-label="閉じる" data-close>×</button>
+      <div class="modal__content">
+        <article class="profile" id="charProfile">
+          <!-- 上段：画像＋基本情報 -->
+          <div class="profile__header">
+            <figure class="profile__portrait">
+              <img id="pImg" alt="" width="280" height="280">
+            </figure>
+
+            <div class="profile__meta">
+              <h3 class="profile__name-ja" id="pNameJp">名前</h3>
+              <div class="profile__name-en" id="pNameEn">Name</div>
+
+              <h4 class="profile__label">Personal Data</h4>
+              <dl class="profile__dl">
+                <div><dt>性別：</dt><dd id="pSex"></dd></div>
+                <div><dt>年齢：</dt><dd id="pAge"></dd></div>
+                <div><dt>身長：</dt><dd id="pHeight"></dd></div>
+                <div><dt>一人称：</dt><dd id="pFirst"></dd></div>
+                <div><dt>二人称：</dt><dd id="pSecond"></dd></div>
+              </dl>
+            </div>
+          </div>
+
+          <hr class="profile__divider">
+
+          <!-- 下段：概要パネル（必要に応じて増やせる） -->
+          <section class="section-card">
+            <h4 class="section-card__title">詳細</h4>
+            <div class="section-card__body" id="pDetails">
+              <!-- テキストが入る -->
+            </div>
+          </section>
+          <section class="section-card">
+            <h4 class="section-card__title">概要</h4>
+            <div class="section-card__body" id="pOverview">
+              <!-- テキストが入る -->
+            </div>
+          </section>
+
+          <section class="section-card">
+            <h4 class="section-card__title">サンプルボイス</h4>
+            <div class="section-card__body" id="pVoice">
+              <!-- テキストが入る -->
+            </div>
+          </section>
+
+          <section class="section-card">
+            <h4 class="section-card__title" id="pT1"></h4>
+            <div class="section-card__body" id="pN1">
+              <!-- テキストが入る -->
+            </div>
+          </section>
+          <section class="section-card">
+            <h4 class="section-card__title" id="pT2"></h4>
+            <div class="section-card__body" id="pN2">
+              <!-- テキストが入る -->
+            </div>
+          </section>
+          <section class="section-card">
+            <h4 class="section-card__title" id="pT3"></h4>
+            <div class="section-card__body" id="pN3">
+              <!-- テキストが入る -->
+            </div>
+          </section>
+
+          <section class="section-card">
+            <h4 class="section-card__title">関係</h4>
+            <div class="section-card__body" id="pLink">
+              <!-- テキストが入る -->
+            </div>
+          </section>
+
+        </article>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="space-vertical"></div>
+  <button id="scrollTopBtn">▲</button>
+  <div id="footer-slot" class="u-invis footer-reserve" data-include="footer.html"></div>
+</body>
+</html>

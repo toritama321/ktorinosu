@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja" data-base=""> 
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1"> <!--幅を端末に合わせる-->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/link.css">
+  <title>LINK</title>
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+  <!-- 初回は見えないけど“高さだけ”は確保しておく -->
+  <div id="header-slot" class="u-invis header-reserve" data-include="header.html"></div>
+
+  <div class="pagebar" role="region" aria-label="ページ見出し">
+    <div class="pagebar__inner">
+      <span class="pagebar__title">LINK</span>
+      <span class="pagebar__sep" aria-hidden="true"></span>
+      <span class="pagebar__subtitle">外部リンク</span>
+    </div>
+  </div>
+  
+  <div class="linkbutton">
+	  <a href="https://x.com/toritama_321" target="_blank">X(旧Twitter)</a>
+  </div>
+
+  <div class="linkbutton">
+	  <a href="https://www.pixiv.net/users/17768421" target="_blank">pixiv</a>
+  </div>
+
+  <div class="space-vertical"></div>
+  <button id="scrollTopBtn">▲</button>
+  <div id="footer-slot" class="u-invis footer-reserve" data-include="footer.html"></div>
+</body>
+</html>

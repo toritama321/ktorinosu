@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja" data-base=""> 
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1"> <!--幅を端末に合わせる-->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/world.css">
+  <title>WORLD</title>
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+  <!-- 初回は見えないけど“高さだけ”は確保しておく -->
+  <div id="header-slot" class="u-invis header-reserve" data-include="header.html"></div>
+
+  <div class="pagebar" role="region" aria-label="ページ見出し">
+    <div class="pagebar__inner">
+      <span class="pagebar__title">WORLD</span>
+      <span class="pagebar__sep" aria-hidden="true"></span>
+      <span class="pagebar__subtitle">創作世界一覧</span>
+    </div>
+  </div>
+  
+  <a class="logo-card"  href="world/draconis.html">
+    <img src="img/Draco/DracoRogo.webp" alt="DoraconisUtopia">
+    <p class="logo-caption">ﾜﾁｬﾜﾁｬするドラゴンたち。</p>
+  </a>
+
+  <a class="logo-card" href="world/kurokura.html">
+    <img src="img/Kurokura/KurokuraRogo.webp" alt="黒色の喰">
+    <p class="logo-caption">ムカつくやつは全部食べましょう。</p>
+  </a>
+
+  <a class="logo-card" href="world/ryukoto.html">
+    <img src="img/Ryukoto/RyukotoRogo.webp" alt="龍のコトダマ">
+    <p class="logo-caption">俺のパートナーが最強だし？？</p>
+  </a>
+  
+  <a class="logo-card" href="world/anday.html">
+    <img src="img/Andei/AndeiRogo.webp" alt="安寧のデイドリーム">
+    <p class="logo-caption">きみの命が明日の勝利を呼ぶ。はず。</p>
+  </a>
+  
+  <a class="logo-card" href="world/mm.html">
+    <img src="img/MM/MMRogo.webp" alt="MissingMemory">
+    <p class="logo-caption">失くしたものを取り戻しに行こう！</p>
+  </a>
+  
+  <a class="logo-card" href="world/siryou.html">
+    <img src="img/Shiryou/SiryouRogo.webp" alt="高次元資料館">
+    <p class="logo-caption">​そこに生命が栄えた事実をここに遺そう。</p>
+  </a>
+
+  <a class="logo-card__D" href="world/dimension.html">
+    <p class="logo-caption__D">Multi Dimension</p>
+  </a>
+  
+  <div class="space-vertical"></div>
+  <button id="scrollTopBtn">▲</button>
+  <div id="footer-slot" class="u-invis footer-reserve" data-include="footer.html"></div>
+</body>
+</html>
