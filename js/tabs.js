@@ -76,6 +76,7 @@ function withBase(path) {
     try {
       const res = await fetch(jbase(file), { cache: 'no-cache' });
       const data = await res.json();
+      console.log('url:',res);
 
       // groups配列前提（前と同じ構造）
       const frag = document.createDocumentFragment();
@@ -94,7 +95,7 @@ function withBase(path) {
           btn.type = 'button';
 
           // 画像だけは階層補正
-          const fixed = { ...m, img: jbase(m.img || '') };
+          const fixed = { ...m, img: withBase(m.img || '') };
           btn._data = fixed; // ← これがミソ（全部持たせる）
 
           btn.innerHTML = `
@@ -104,6 +105,17 @@ function withBase(path) {
             <span class="char-name">${esc(m.name || '')}</span>
           `;
           grid.appendChild(btn);
+
+          if (m.crop) {
+            const shell = btn.querySelector('.char-img');
+            const c = m.crop;
+            if (c.zoom   != null) shell.style.setProperty('--zoom',    String(c.zoom));
+            if (c.x)             shell.style.setProperty('--focus-x',  c.x);
+            if (c.y)             shell.style.setProperty('--focus-y',  c.y);
+            if (c.shiftX)        shell.style.setProperty('--shift-x',  c.shiftX);
+            if (c.shiftY)        shell.style.setProperty('--shift-y',  c.shiftY);
+            if (c.anchorY)       shell.style.setProperty('--anchor-y', c.anchorY);
+          }
 
         });
 
@@ -128,10 +140,6 @@ function withBase(path) {
     }
   }
 })();
-
-function resolveFromDoc(p) {
-  try { return new URL(p, document.baseURI).href; } catch { return p; }
-}
 
 function createCharButton(m, jbase) {
   // 画像パス補正＆元データ保持
@@ -558,4 +566,5 @@ function openFromInitialHash() {
 // 初期化の“かなり早い段階”で呼ぶ（リストを描画するコードの直後でもOK）
 
 document.addEventListener('DOMContentLoaded', openFromInitialHash);
+
 
