@@ -1,6 +1,18 @@
-// ★ ページ読み込み直後の“生”ハッシュを確保
+// ★ ページ読み込み直後の“生”ハッシュを確保（上書きされる前に！）
 const RAW_HASH_AT_BOOT = location.hash;
 //console.log('[BOOT HASH]', RAW_HASH_AT_BOOT);
+
+// ベースパス（リポ名に合わせる）
+const BASE_PATH = '/torinosu/';
+
+// 安全にくっつける関数
+function withBase(path) {
+  if (!path) return '';
+  // すでに http:// や /torinosu/ で始まってたらそのまま
+  if (/^(https?:|\/torinosu\/)/.test(path)) return path;
+  // ../ を消して BASE_PATH にくっつける
+  return BASE_PATH + path.replace(/^(\.\/|\.\.\/)+/, '');
+}
 
 // ===== Tabs: 世界設定 / キャラクター =======================================================
 (function initTabs(){
@@ -544,4 +556,5 @@ function openFromInitialHash() {
 }
 
 // 初期化の“かなり早い段階”で呼ぶ（リストを描画するコードの直後でもOK）
+
 document.addEventListener('DOMContentLoaded', openFromInitialHash);
