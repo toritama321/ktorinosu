@@ -14,53 +14,6 @@ function withBase(path) {
   return BASE_PATH + path.replace(/^(\.\/|\.\.\/)+/, '');
 }
 
-// ===== Tabs: 世界設定 / キャラクター =======================================================
-(function initTabs(){
-  const root = document.querySelector('[data-tabs]');
-  if (!root) return;
-
-  const tabs = root.querySelectorAll('[role="tab"]');
-  const panels = root.querySelectorAll('[role="tabpanel"]');
-
-  function selectTab(nextId) {
-    tabs.forEach(t => {
-      const selected = (t.id === nextId);
-      t.setAttribute('aria-selected', String(selected));
-      t.tabIndex = selected ? 0 : -1;
-    });
-    panels.forEach(p => {
-      const show = (p.getAttribute('aria-labelledby') === nextId);
-      p.toggleAttribute('hidden', !show);
-    });
-    // ハッシュ更新（戻る/進む対応）
-    const short = nextId === 'tab-chars' ? 'chars' : 'world';
-    history.replaceState(null, '', '#tab=' + short);
-  }
-
-  // 初期：ハッシュ or デフォルト
-  const params = new URL(location.href).hash;
-  if (params.includes('tab=chars')) selectTab('tab-chars');
-  else selectTab('tab-world');
-
-  // クリック
-  tabs.forEach(t => t.addEventListener('click', () => selectTab(t.id)));
-
-  // キーボード: ← → Home End
-  root.addEventListener('keydown', (e) => {
-    const order = Array.from(tabs);
-    const current = order.findIndex(t => t.getAttribute('aria-selected') === 'true');
-    let next = current;
-    if (e.key === 'ArrowRight') next = (current + 1) % order.length;
-    else if (e.key === 'ArrowLeft') next = (current - 1 + order.length) % order.length;
-    else if (e.key === 'Home') next = 0;
-    else if (e.key === 'End') next = order.length - 1;
-    else return;
-    e.preventDefault();
-    order[next].focus();
-    selectTab(order[next].id);
-  });
-})();
-
 // === Characters: data-json で指定されたファイルを読む =========================================================
 (async function renderCharactersByDataAttr(){
   const sections = document.querySelectorAll('[data-json]');
@@ -566,5 +519,6 @@ function openFromInitialHash() {
 // 初期化の“かなり早い段階”で呼ぶ（リストを描画するコードの直後でもOK）
 
 document.addEventListener('DOMContentLoaded', openFromInitialHash);
+
 
 
