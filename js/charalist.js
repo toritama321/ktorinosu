@@ -1,3 +1,15 @@
+// ベースパス（リポ名に合わせる）
+const BASE_PATH = '/torinosu/';
+
+// 安全にくっつける関数
+function withBase(path) {
+  if (!path) return '';
+  // すでに http:// や /torinosu/ で始まってたらそのまま
+  if (/^(https?:|\/torinosu\/)/.test(path)) return path;
+  // ../ を消して BASE_PATH にくっつける
+  return BASE_PATH + path.replace(/^(\.\/|\.\.\/)+/, '');
+}
+
 // 設定　########################################################################
 // JSONファイル
 const JSON_SOURCES = [
@@ -267,4 +279,5 @@ function retryImg(img) {
 function refreshLazy() {
   document.querySelectorAll('.char-card:not(.hidden) img[data-src]:not([data-hydrated="1"])')
     .forEach(img => io ? io.observe(img) : hydrateImg(img));
+
 }
