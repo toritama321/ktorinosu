@@ -1,11 +1,11 @@
 // ベースパス（リポ名に合わせる）
-const BASE_PATH = '/torinosu/';
+const BASE_PATH = '/ktorinosu/';
 
 // 安全にくっつける関数
 function withBase(path) {
   if (!path) return '';
   // すでに http:// や /torinosu/ で始まってたらそのまま
-  if (/^(https?:|\/torinosu\/)/.test(path)) return path;
+  if (/^(https?:|\/ktorinosu\/)/.test(path)) return path;
   // ../ を消して BASE_PATH にくっつける
   return BASE_PATH + path.replace(/^(\.\/|\.\.\/)+/, '');
 }
@@ -281,3 +281,4 @@ function refreshLazy() {
     .forEach(img => io ? io.observe(img) : hydrateImg(img));
 
 }
+
