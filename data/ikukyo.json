@@ -5,7 +5,7 @@
       "members": [
         {
             "id":"mizuchi",
-            "img":"../img/ikukyo/mizuchi.JPG",
+            "img":"../img/ikukyo/mizuti.webp",
             "name":"水霊 蛟",
             "nameEn":"Suiryo Mizuchi",
             "sex":"女",
@@ -77,7 +77,7 @@
         },
         {
             "id":"yoshiro",
-            "img":"../img/ikukyo/yoshiro.JPG",
+            "img":"../img/ikukyo/yosiro.webp",
             "name":"瓦偶判 依代",
             "nameEn":"Gaguhan Yoshiro",
             "sex":"女",
@@ -144,7 +144,7 @@
         },
         {
             "id":"mioto",
-            "img":"../img/ikukyo/mioto.JPG",
+            "img":"../img/ikukyo/mioto.webp",
             "name":"七神 美音",
             "nameEn":"Nanakami Mioto",
             "sex":"女",
@@ -208,7 +208,7 @@
         },
         {
             "id":"youka",
-            "img":"../img/ikukyo/youka.JPG",
+            "img":"../img/ikukyo/youka.webp",
             "name":"山姫 ヨウカ",
             "nameEn":"Yamahime Youka",
             "sex":"女",
@@ -269,7 +269,7 @@
         },
         {
             "id":"kikyo",
-            "img":"../img/ikukyo/kikyo.JPG",
+            "img":"../img/ikukyo/kikyo.webp",
             "name":"楓葉 桔梗",
             "nameEn":"Kaedeba Kikyo",
             "sex":"女",
@@ -328,7 +328,7 @@
         },
         {
             "id": "sakumaru",
-            "img": "../img/ikukyo/sakumaru.JPG",
+            "img": "../img/ikukyo/sakumaru.webp",
             "name": "雲翳 朔丸",
             "nameEn": "Kumokage Sakumaru",
             "sex": "男",
@@ -395,7 +395,7 @@
       },
       {
             "id": "shemi",
-            "img": "../img/ikukyo/shemi.JPG",
+            "img": "../img/ikukyo/shemi.webp",
             "name": "シェミィ",
             "nameEn": "Shemy",
             "sex": "女",
@@ -453,7 +453,7 @@
       },
       {
             "id": "dorofonia",
-            "img": "../img/ikukyo/dorofonia.JPG",
+            "img": "../img/ikukyo/dorofonia.webp",
             "name": "ドロフォニア",
             "nameEn": "Δολοφονία",
             "sex": "女",
@@ -514,7 +514,7 @@
       },
       {
             "id": "touka",
-            "img": "../img/ikukyo/touka.JPG",
+            "img": "../img/ikukyo/toka.webp",
             "name": "灯華",
             "nameEn": "Toka",
             "sex": "女",
@@ -577,7 +577,7 @@
       },
       {
             "id": "asahi",
-            "img": "../img/ikukyo/asahi.JPG",
+            "img": "../img/ikukyo/asahi.webp",
             "name": "師子宮 旭",
             "nameEn": "Shishigu Asahi",
             "sex": "男",
@@ -687,3 +687,4 @@
     }
   ]
 }
+
