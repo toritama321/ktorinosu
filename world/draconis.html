@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja"> 
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1"> <!--幅を端末に合わせる-->
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/worldbase.css">
+  <link rel="stylesheet" href="../css/dracobase.css">
+  <title>WORLD｜DraconisUtopia</title>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/tabs.js" defer></script>
+</head>
+
+<body>
+  <!-- 初回は見えないけど“高さだけ”は確保しておく -->
+  <div id="header-slot" class="u-invis header-reserve" data-include="header.html"></div>
+
+  <div class="pagebar">
+    <p class="worldnameFurigana">ドラコニス　ユートピア</p>
+    <h1 class="worldname">Doraconis Utopia</h1>
+    <h3 class="sent">そこは、ドラゴンたちの楽園</h3>
+  </div>
+
+  <section class="tabs" data-tabs id="world-characters">
+    <!-- タブ見出し -->
+    <div class="tabs__list" role="tablist" aria-label="世界とキャラ切替">
+      <button role="tab" id="tab-world" aria-controls="panel-world" aria-selected="true">
+        世界設定
+      </button>
+      <button role="tab" id="tab-chars" aria-controls="panel-chars" aria-selected="false">
+        キャラクター
+      </button>
+    </div>
+
+    <!-- パネル：世界設定 -->
+    <div id="panel-world" role="tabpanel" aria-labelledby="tab-world">
+      <div class="world-card">
+        <div class="box-title">ドラゴンという種族</div>
+        <p>姿は西洋における同名のモンスターと似通っており、四足歩行のものや前足が翼になっているものなどが存在する。
+          寿命は平均3000年。量に個人差はあるが生まれつき魔力を持ち、使い方を覚えることで魔法を使うことができる。<br>
+          また、口から火を吐くことも可能。100～200年ごとに魔力の塊である｢竜玉｣が体内に生成され、
+          吐き出すことで外部の魔力源として用いることができる。
+        </p>
+      </div>
+
+      <div class="world-card">
+        <div class="box-title">ドラゴンの国</div>
+        <p>国名は｢ルーフス｣。世襲君主制の国で、王が絶対的な権力を持つ独裁政治の方式を執っている。
+          限られた土地を有効活用するため、国民は人間の姿を象って生活している。
+        </p>
+      </div>
+
+      <div class="world-card">
+        <div class="box-title">空間の歪み</div>
+        <p>国の外は空間が歪みやすくなっており、1〜3ヶ月周期で様々な場所と繋がるようになっている。
+          国は他民族に対して非常に友好的で、観光客をターゲットとした事業も数多く存在する。<br>
+          ただし移住などの受け入れについてはこの限りでなく、国の設備や政治的な面から、他民族が住むことを基本拒んでいる。
+        </p>
+      </div>
+
+      <div class="world-card">
+        <div class="box-title">軍事</div>
+        <p>王を最高指揮官とし、警護隊と遊撃隊が存在する。</p>
+        <div class="mini-box">
+          <span class="minibox-title">警護隊</span>
+          <p>
+            隊長：ディーネ　副隊長：カエルラ<br>
+            街の警備や犯罪の取り締まり、国が襲われた際の防衛を行う。国の地域ごとに担当班が別れており、1〜8班まで存在する。
+          </p>
+        </div>
+        <div class="mini-box">
+          <span class="minibox-title">遊撃隊</span>
+          <p>
+            隊長：ニベウス　副隊長：カエデ<br>
+            警護隊よりも戦闘に特化し、国の防衛を主に行う。設置されて日が浅く、隊員数は多くない。
+          </p>
+        </div>
+      </div>
+
+      <div class="world-card">
+        <div class="box-title">歴史</div>
+        <div class="mini-box">
+          <span class="minibox-title">紋付竜事件</span>
+          <p>
+            約450年前、紋付竜｢フォビア｣が国を壊滅寸前まで追い込んだ事件。<br>
+            事件直前に王が変わり、政策の改善などで人々が疲弊していたこと、警護隊も改革中であったことなどから
+            対応がスムーズにいかず、甚大な被害を受けることとなった。<br>
+            事件後、紋付竜は差別の対象となり、国内にいる紋付竜の数は非常に減っている。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div id="panel-chars" role="tabpanel" aria-labelledby="tab-chars">
+      <!-- パネル：キャラクター -->
+      <section class="char-section" id="charRoot" data-json="data/dracochara.json">
+        <!-- JSで挿入 -->
+      </section>
+    </div>  
+
+    <!-- モーダル（ポップアップ） -->
+    <div class="modal" id="charModal" hidden>
+      <div class="modal__overlay" data-close></div>
+      <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="charTitle">
+        <button class="modal__close" type="button" aria-label="閉じる" data-close>×</button>
+        <div class="modal__content">
+          <article class="profile" id="charProfile">
+            <!-- 上段：画像＋基本情報 -->
+            <div class="profile__header">
+              <figure class="profile__portrait">
+                <img id="pImg" alt="" width="280" height="280">
+              </figure>
+
+              <div class="profile__meta">
+                <h3 class="profile__name-ja" id="pNameJp">名前</h3>
+                <div class="profile__name-en" id="pNameEn">Name</div>
+
+                <h4 class="profile__label">Personal Data</h4>
+                <dl class="profile__dl">
+                  <div><dt>性別：</dt><dd id="pSex"></dd></div>
+                  <div><dt>年齢：</dt><dd id="pAge"></dd></div>
+                  <div><dt>身長：</dt><dd id="pHeight"></dd></div>
+                  <div><dt>一人称：</dt><dd id="pFirst"></dd></div>
+                  <div><dt>二人称：</dt><dd id="pSecond"></dd></div>
+                </dl>
+              </div>
+            </div>
+
+            <hr class="profile__divider">
+
+            <!-- 下段：概要パネル（必要に応じて増やせる） -->
+            <section class="section-card">
+              <h4 class="section-card__title">概要</h4>
+              <div class="section-card__body" id="pDetails">
+                <!-- テキストが入る -->
+              </div>
+            </section>
+
+            <section class="section-card">
+              <h4 class="section-card__title">サンプルボイス</h4>
+              <div class="section-card__body" id="pVoice">
+                <!-- テキストが入る -->
+              </div>
+            </section>
+
+            <section class="section-card">
+              <h4 class="section-card__title" id="pT1"></h4>
+              <div class="section-card__body" id="pN1">
+                <!-- テキストが入る -->
+              </div>
+            </section>
+            <section class="section-card">
+              <h4 class="section-card__title" id="pT2"></h4>
+              <div class="section-card__body" id="pN2">
+                <!-- テキストが入る -->
+              </div>
+            </section>
+
+            <section class="section-card">
+              <h4 class="section-card__title">関係</h4>
+              <div class="section-card__body" id="pLink">
+                <!-- テキストが入る -->
+              </div>
+            </section>
+            <section class="profile-gallery" id="pGallery" hidden aria-label="Image gallery">
+              <div class="profile-gallery__stage">
+                <button class="profile-gallery__arrow profile-gallery__arrow--prev" id="pGalleryPrev" type="button" aria-label="Previous image">&lsaquo;</button>
+                <figure class="profile-gallery__figure">
+                  <img class="profile-gallery__image" id="pGalleryImg" alt="">
+                  <figcaption class="profile-gallery__caption" id="pGalleryCaption" hidden></figcaption>
+                </figure>
+                <button class="profile-gallery__arrow profile-gallery__arrow--next" id="pGalleryNext" type="button" aria-label="Next image">&rsaquo;</button>
+              </div>
+              <div class="profile-gallery__dots" id="pGalleryDots" aria-label="Image position"></div>
+            </section>
+
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="space-vertical"></div>
+  <button id="scrollTopBtn">▲</button>
+  <div id="footer-slot" class="u-invis footer-reserve" data-include="footer.html"></div>
+</body>
+
+</html>
+
+
+
+
+
+

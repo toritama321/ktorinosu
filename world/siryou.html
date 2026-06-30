@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja"> 
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1"> <!--幅を端末に合わせる-->
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/worldbase.css">
+  <link rel="stylesheet" href="../css/siryoubase.css">
+  <title>WORLD｜高次元資料館</title>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/tabs.js" defer></script>
+</head>
+
+<body>
+  <!-- 初回は見えないけど“高さだけ”は確保しておく -->
+  <div id="header-slot" class="u-invis header-reserve" data-include="header.html"></div>
+
+  <div class="pagebar">
+    <p class="worldnameFurigana">コウジゲンシリョウカン</p>
+    <h1 class="worldname">高次元資料館</h1>
+    <h3 class="sent">すべてのものが生きた証はここにある</h3>
+  </div>
+
+  <section class="tabs" data-tabs id="world-characters">
+    <!-- タブ見出し -->
+    <div class="tabs__list" role="tablist" aria-label="世界とキャラ切替">
+      <button role="tab" id="tab-world" aria-controls="panel-world" aria-selected="true">
+        館内案内
+      </button>
+      <button role="tab" id="tab-chars" aria-controls="panel-chars" aria-selected="false">
+        職員簿
+      </button>
+    </div>
+
+    <!-- パネル：世界設定 -->
+    <div id="panel-world" role="tabpanel" aria-labelledby="tab-world">
+      <div class="world-card">
+        <div class="box-title">高次元資料館とは</div>
+        <p>
+          様々な世界の歴史、技術、文化などの資料が保管されている建物。  “神”と呼ばれる存在がいる次元より、さらに上の次元に存在し、 限られた者しか立ち入ることはできない。<br> 
+          初めは崩壊した文明の遺産のみ集めていたが 現在はまだ繁栄している文明の資料も集めているようである。 <br> 
+          この資料館がなんのために、誰によって創られたのか、それは館長のみが知っている。
+        </p>
+      </div>
+
+      <div class="world-card">
+        <div class="box-title">学芸員</div>
+        <p>
+          資料の収集、分類、整理、管理などを担い、 資料館で働く者たちを「学芸員」と呼ぶ。 学芸員たちは館長によって生み出され、命が尽きて欠員が出ると補充される。 <br>
+          命がある、体を持つ、意思がある、感情があるなど、 一般的な生命と似た特徴を持つが、性別や寿命などは存在しない。 基本的に、体に一定以上のダメージが入ると命を落とす。
+        </p>
+      </div>
+    </div>
+
+    <div id="panel-chars" role="tabpanel" aria-labelledby="tab-chars">
+      <!-- パネル：キャラクター -->
+      <section class="char-section" id="charRoot" data-json="data/siryouchara.json">
+        <!-- JSで挿入 -->
+      </section>
+    </div>  
+
+    <!-- モーダル（ポップアップ） -->
+    <div class="modal" id="charModal" hidden>
+      <div class="modal__overlay" data-close></div>
+      <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="charTitle">
+        <button class="modal__close" type="button" aria-label="閉じる" data-close>×</button>
+        <div class="modal__content">
+          <article class="profile" id="charProfile">
+            <!-- 上段：画像＋基本情報 -->
+            <div class="profile__header">
+              <figure class="profile__portrait">
+                <img id="pImg" alt="" width="280" height="280">
+              </figure>
+
+              <div class="profile__meta">
+                <h3 class="profile__name-ja" id="pNameJp">名前</h3>
+                <div class="profile__name-en" id="pNameEn">Name</div>
+
+                <h4 class="profile__label">Personal Data</h4>
+                <dl class="profile__dl">
+                  <div><dt>身長：</dt><dd id="pHeight"></dd></div>
+                  <div><dt>一人称：</dt><dd id="pFirst"></dd></div>
+                  <div><dt>二人称：</dt><dd id="pSecond"></dd></div>
+                </dl>
+              </div>
+            </div>
+
+            <hr class="profile__divider">
+
+            <!-- 下段：概要パネル（必要に応じて増やせる） -->
+            <section class="section-card">
+              <h4 class="section-card__title">概要</h4>
+              <div class="section-card__body" id="pDetails">
+                <!-- テキストが入る -->
+              </div>
+            </section>
+
+            <section class="section-card">
+              <h4 class="section-card__title">サンプルボイス</h4>
+              <div class="section-card__body" id="pVoice">
+                <!-- テキストが入る -->
+              </div>
+            </section>
+            <section class="profile-gallery" id="pGallery" hidden aria-label="Image gallery">
+              <div class="profile-gallery__stage">
+                <button class="profile-gallery__arrow profile-gallery__arrow--prev" id="pGalleryPrev" type="button" aria-label="Previous image">&lsaquo;</button>
+                <figure class="profile-gallery__figure">
+                  <img class="profile-gallery__image" id="pGalleryImg" alt="">
+                  <figcaption class="profile-gallery__caption" id="pGalleryCaption" hidden></figcaption>
+                </figure>
+                <button class="profile-gallery__arrow profile-gallery__arrow--next" id="pGalleryNext" type="button" aria-label="Next image">&rsaquo;</button>
+              </div>
+              <div class="profile-gallery__dots" id="pGalleryDots" aria-label="Image position"></div>
+            </section>
+
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="space-vertical"></div>
+  <button id="scrollTopBtn">▲</button>
+  <div id="footer-slot" class="u-invis footer-reserve" data-include="footer.html"></div>
+</body>
+
+</html>
+

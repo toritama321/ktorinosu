@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ja"> 
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1"> <!--幅を端末に合わせる-->
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/worldbase.css">
+  <link rel="stylesheet" href="../css/kurokurabase.css">
+  <title>WORLD｜黒色の喰</title>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/tabs.js" defer></script>
+</head>
+
+<body>
+  <!-- 初回は見えないけど“高さだけ”は確保しておく -->
+  <div id="header-slot" class="u-invis header-reserve" data-include="header.html"></div>
+
+  <div class="pagebar">
+    <p class="worldnameFurigana">クロイロノクライ</p>
+    <h1 class="worldname">黒色の喰</h1>
+    <h3 class="sent">生きるためなら、悪さえ為そう</h3>
+  </div>
+
+  <section class="tabs" data-tabs id="world-characters">
+    <!-- タブ見出し -->
+    <div class="tabs__list" role="tablist" aria-label="世界とキャラ切替">
+      <button role="tab" id="tab-world" aria-controls="panel-world" aria-selected="true">
+        世界設定
+      </button>
+      <button role="tab" id="tab-worldop" aria-controls="panel-worldop" aria-selected="true">
+        裏側設定
+      </button>
+      <button role="tab" id="tab-chars" aria-controls="panel-chars" aria-selected="false">
+        キャラクター
+      </button>
+    </div>
+
+    <!-- パネル：世界設定 -->
+    <div id="panel-world" role="tabpanel" aria-labelledby="tab-world">
+      <div class="world-card">
+        <div class="box-title">あらすじ</div>
+        <p>
+          田舎から都会に飛び出してきたごく普通の女子高生・入江メイナは、近所の寂れた神社で言妖と呼ばれる者の封印を解いてしまう。<br>
+          クライと名乗った彼は、自身の着けている首輪に込められた魔力により、メイナと自分の生死が共有されてしまう呪いをかけられていると告げた。​<br>
+          罪人として指名手配されているクライのもとへは、彼を殺そうとする者たちが次々と現れる。果たしてメイナは、呪いを解いて平穏な日常を取り戻せるのか？<br>
+          <br>――綺麗事だけで生きていられるのは、空想の世界だけだ。
+        </p>
+      </div>
+
+      <div class="world-card">
+        <div class="box-title">言妖</div>
+        <p>
+          読みは「コトアヤ」。裏側と呼ばれる場所に住む種族。<br>
+          妖怪や怪物と呼ばれたり、ときには神と呼ぶ人間もいる。魔力で強化しなければ身体能力は人間と同程度。寿命は平均300年といわれる。
+        </p>
+      </div>
+
+      <div class="world-card">
+        <div class="box-title">表側と裏側</div>
+        <p>
+          人間の住む世界を「表側」と呼び、それに隣接して存在するとされる世界を「裏側」と呼ぶ。裏側はあまり広くなく、ひとつの国とそれ以外の無法地帯に別れている。<br>
+          普通、ふたつの世界を行き来することは不可能だが、言妖が膨大な魔力を放出すると一時的に空間に裂け目ができ、そこからもう一方の世界へ行くことができるといわれる。
+        </p>
+      </div>
+
+      <div class="world-card">
+        <div class="box-title">魔力</div>
+        <p>
+          言妖が持つ超常的なエネルギー。量は個人差がある。魔力を消費することで特別な力を使うことができる他、身体強化や人間の姿に化けることもできる。<br>
+          通常、魔力を使わずにいると徐々に回復する。触角と尾によってコントロールされているとされ、一定量を超えると羽が出てくる。
+        </p>
+      </div>
+
+      <div class="world-card">
+        <div class="box-title">安らぎの鐘</div>
+        <p>裏側の統治や治安維持をしている組織。5つの局から構成されている。</p>
+        <div class="mini-box">
+          <span class="minibox-title">内務局</span>
+          <p>局長：カケリ<br>
+            主に法や規則の制定、情報統制などを行う。<br>
+            安らぎの鐘の中心ともいえる局であり、大体いつも忙しない。
+          </p>
+        </div>
+        <div class="mini-box">
+          <span class="minibox-title">警備局</span>
+          <p>局長：イノリ<br>
+            武力に依らない国内の治安維持を担う。<br>
+            かつては内務局の役目だったが、その重要性から独立した。
+          </p>
+        </div>
+        <div class="mini-box">
+          <span class="minibox-title">軍事局</span>
+          <p>局長：コワレ<br>
+            国内の諍いの制圧や、無法地帯からの襲撃の対応を行う。<br>
+            小規模ながら軍隊を持つため、最も人数の多い局。
+          </p>
+        </div>
+        <div class="mini-box">
+          <span class="minibox-title">記録局</span>
+          <p>局長：ウタイ<br>
+            歴史や国民の情報など、あらゆるものを記録して残す作業を行う。<br>
+            思考力や集中力が要求されるため、仕事場は静寂が保たれている。
+          </p>
+        </div>
+        <div class="mini-box">
+          <span class="minibox-title">特殊対策局</span>
+          <p>局長：ムスビ<br>
+            厄介な言妖の相手や、イレギュラーが起きた際の対応などを行う。強硬手段を取る際に出動することが多い。<br>
+            その業務の多様さから、雑用係と揶揄されることも。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- パネル：裏側設定 -->
+    <div id="panel-worldop" role="tabpanel" aria-labelledby="tab-worldop">
+      <div class="world-card">
+        <div class="box-title">言妖</div>
+        <p>
+          人間を作った神とは別の神が作った種族。 ｢人間より強い生き物｣として作られたため、魔力という特殊な力を持つ。魔力が関係しない部分はほぼ人間と同じ。<br>
+          20代後半から体が大人になるため、成熟は遅め。理論上は人間との間にも子孫を残せるが、記録はない。
+        </p>
+      </div>
+      <div class="world-card">
+        <div class="box-title">時間</div>
+        <p>
+          世界全体の魔力が満ちる時間は空が明るく、魔力が薄まる時間は暗い。それぞれ<span style="color: rgb(185, 0, 0);">｢明時(あけどき)｣、｢影時(かげどき)｣</span>と呼ぶ。<br>
+          それぞれの長さは毎日一定なわけではなく、言妖たちは時間よりも魔力の満ち干きで時の流れを認識するため、かなり流動的な生活をしている。
+        </p>
+      </div>
+      <div class="world-card">
+        <div class="box-title">暦</div>
+        <p>
+          一年の中でも魔力が満ちる時期、薄まる時期が存在し、それぞれ<span style="color: rgb(185, 0, 0);">｢明期(めいき)｣、｢影期(えいき)｣</span>と呼ぶ。<br>
+          最も魔力が満ちる日を<span style="color: rgb(185, 0, 0);">｢明澄日(めいちょうび)｣</span>といい、この日を一年の終わり、そして始まりとしている。環境側に合わせているため、一年は年によって日数が多少変動する。<br>
+          明時と影時の1サイクルで一日と呼ぶが、週、月の概念はない。
+          </p>
+      </div>
+      <div class="world-card">
+        <div class="box-title">行事</div>
+        <div class="mini-box">
+          <span class="minibox-title">明澄日（めいちょうび）</span>
+          <p>
+            一年の始まりの日。大きく祝うことはなく、去る年の感謝や挨拶をする。家族で過ごすことも多い。
+          </p>
+        </div>
+        <div class="mini-box">
+          <span class="minibox-title">影日（かげび）</span>
+          <p>
+            一年で最も魔力が薄まる日。この日に新しいことを始めるのはタブーとされている。
+          </p>
+        </div>
+        <div class="mini-box">
+          <span class="minibox-title">大明澄（だいめいちょう）</span>
+          <p>
+            年間通しての魔力量が特に多くなる年。約10年に一度ある。何をしても上手くいくと言われるほか、魔力の成長にも良い年とされる。
+          </p>
+        </div>
+      </div>
+
+      <div class="world-card">
+        <div class="box-title">食事</div>
+        <p>
+          言妖は生きるために食事を必要としないため、嗜好品や薬膳としての位置づけにある。見た目が派手、味が特徴的な料理が多く、人間には毒である食材も普通に使われたりする。 <br>
+          薬膳として摂取する場合は食べやすさが重視され、主に裏側の魔力を吸った特殊な素材が使われる。<br> 
+          過去に表側に行った言妖、もしくは裏側に迷い込んだ人間が料理というものを持ち込んだとされる。 
+        </p>
+      </div>
+    </div>
+
+    <div id="panel-chars" role="tabpanel" aria-labelledby="tab-chars">
+      <!-- パネル：キャラクター -->
+      <section class="char-section" id="charRoot" data-json="data/kurochara.json">
+        <!-- JSで挿入 -->
+      </section>
+    </div>  
+
+    <!-- モーダル（ポップアップ） -->
+    <div class="modal" id="charModal" hidden>
+      <div class="modal__overlay" data-close></div>
+      <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="charTitle">
+        <button class="modal__close" type="button" aria-label="閉じる" data-close>×</button>
+        <div class="modal__content">
+          <article class="profile" id="charProfile">
+            <!-- 上段：画像＋基本情報 -->
+            <div class="profile__header">
+              <figure class="profile__portrait">
+                <img id="pImg" alt="">
+              </figure>
+
+              <div class="profile__meta">
+                <h3 class="profile__name-ja" id="pNameJp">名前</h3>
+                <div class="profile__name-en" id="pNameEn">Name</div>
+                <div class="profile__name-kan" id="pNameKan">名</div>
+
+                <h4 class="profile__label">Personal Data</h4>
+                <dl class="profile__dl">
+                  <div><dt>性別：</dt><dd id="pSex"></dd></div>
+                  <div><dt>年齢：</dt><dd id="pAge"></dd></div>
+                  <div><dt>身長：</dt><dd id="pHeight"></dd></div>
+                  <div><dt>一人称：</dt><dd id="pFirst"></dd></div>
+                  <div><dt>二人称：</dt><dd id="pSecond"></dd></div>
+                </dl>
+              </div>
+            </div>
+
+            <hr class="profile__divider">
+
+            <!-- 下段：概要パネル（必要に応じて増やせる） -->
+            <section class="section-card">
+              <h4 class="section-card__title">概要</h4>
+              <div class="section-card__body" id="pDetails">
+                <!-- テキストが入る -->
+              </div>
+            </section>
+
+            <section class="section-card">
+              <h4 class="section-card__title">サンプルボイス</h4>
+              <div class="section-card__body" id="pVoice">
+                <!-- テキストが入る -->
+              </div>
+            </section>
+
+            <section class="section-card">
+              <h4 class="section-card__title" id="pT1"></h4>
+              <div class="section-card__body" id="pN1">
+                <!-- テキストが入る -->
+              </div>
+            </section>
+            <section class="section-card">
+              <h4 class="section-card__title" id="pT2"></h4>
+              <div class="section-card__body" id="pN2">
+                <!-- テキストが入る -->
+              </div>
+            </section>
+
+            <section class="section-card">
+              <h4 class="section-card__title">関係</h4>
+              <div class="section-card__body" id="pLink">
+                <!-- テキストが入る -->
+              </div>
+            </section>
+            <section class="profile-gallery" id="pGallery" hidden aria-label="Image gallery">
+              <div class="profile-gallery__stage">
+                <button class="profile-gallery__arrow profile-gallery__arrow--prev" id="pGalleryPrev" type="button" aria-label="Previous image">&lsaquo;</button>
+                <figure class="profile-gallery__figure">
+                  <img class="profile-gallery__image" id="pGalleryImg" alt="">
+                  <figcaption class="profile-gallery__caption" id="pGalleryCaption" hidden></figcaption>
+                </figure>
+                <button class="profile-gallery__arrow profile-gallery__arrow--next" id="pGalleryNext" type="button" aria-label="Next image">&rsaquo;</button>
+              </div>
+              <div class="profile-gallery__dots" id="pGalleryDots" aria-label="Image position"></div>
+            </section>
+
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="space-vertical"></div>
+  <button id="scrollTopBtn">▲</button>
+  <div id="footer-slot" class="u-invis footer-reserve" data-include="footer.html"></div>
+</body>
+
+</html>
+

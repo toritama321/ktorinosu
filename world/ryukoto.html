@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja"> 
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1"> <!--幅を端末に合わせる-->
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/worldbase.css">
+  <link rel="stylesheet" href="../css/ryukotobase.css">
+  <title>WORLD｜龍のコトダマ</title>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/tabs.js" defer></script>
+</head>
+
+<body>
+  <!-- 初回は見えないけど“高さだけ”は確保しておく -->
+  <div id="header-slot" class="u-invis header-reserve" data-include="header.html"></div>
+
+  <div class="pagebar">
+    <p class="worldnameFurigana">リュウノコトダマ</p>
+    <h1 class="worldname">龍のコトダマ</h1>
+    <h3 class="sent">きみとなら、巨悪だって終わりに導ける。</h3>
+  </div>
+
+  <section class="tabs" data-tabs id="world-characters">
+    <!-- タブ見出し -->
+    <div class="tabs__list" role="tablist" aria-label="世界とキャラ切替">
+      <button role="tab" id="tab-world" aria-controls="panel-world" aria-selected="true">
+        世界設定
+      </button>
+      <button role="tab" id="tab-chars" aria-controls="panel-chars" aria-selected="false">
+        キャラクター
+      </button>
+    </div>
+
+    <!-- パネル：世界設定 -->
+    <div id="panel-world" role="tabpanel" aria-labelledby="tab-world">
+      <div class="world-card">
+        <div class="box-title">プロローグ</div>
+        <p>
+          日本ではない、地球ではない、でもとてもよく似た世界の話。<br>
+          その世界では遥か昔から、人間ひとりひとりに龍神さまが宿り、言葉を用いることでその力を借りることができると言われていました。人智を超えた存在である龍神は、信仰対象として崇められていたのです。<br>
+          現代、龍神に対する信仰心は随分と薄れてしまいました。人間は自分を災いから守ってくれる存在として、龍神は自身が存在するための依代として、対等な関係を築きながら日々を過ごしています。<br>
+          …力があるとなれば、それを悪用する人間はやはり生まれるもので、様々な想いを持った人間が、龍神が、罪のない者たちを襲う事件が昔から後を絶ちません。技術が大きく発展した今、それらの動きは急速に活発化し、組織まで生まれるに至ったのです。<br>
+          もちろん、それを良しとする者ばかりではありません。有志の者たちが集まり、悪を為す組織に対抗すべく立ち上がりました。
+        </p>
+      </div>
+
+      <div class="world-card">
+        <div class="box-title">人間と龍神</div>
+          <div class="mini-box">
+            <span class="minibox-title">人間</span>
+            <p>地球に住む人間と同じ生物。ただひとつ、龍神を1人1体宿していることだけが地球人と異なる。</p>
+          </div>
+          <div class="mini-box">
+            <span class="minibox-title">龍神</span>
+            <p>
+            人間1人に1体宿る、人智を超えた存在。姿形に一貫性はなく、龍神の意思で自由に変えられるとも言われる。人間の発する言葉（呪文）に含まれたエネルギーを用いて、魔法とも形容される不思議な現象を起こすことができる。依代となっている人間の命を奪うしか殺す方法はない。<br>
+            限界を超えてダメージを受けると、しばらく顕現することができなくなり、また回復したあともその力は半分以下に落ちる。
+            </p>
+          </div>
+      </div>
+
+      <div class="world-card">
+        <div class="box-title">オラクルとヴェノム</div>
+          <div class="mini-box">
+            <span class="minibox-title">オラクル</span>
+            <p>
+              悪を為し世を混乱に陥れようとするヴェノムに対抗するべく、有志の者たちが集まって結成した組織。世の中を守りたいという気持ちがあれば誰でも入ることができるが、未成年の場合は親の許可が必要。オラクルとして活動する際は腕章を付けることが義務付けられている。<br>
+              所属者は、容赦なくヴェノムの人間を殺す者と、龍神を戦闘不能にするだけの者の2種類に大きくわけられる。
+            </p>
+          </div>
+          <div class="mini-box">
+            <span class="minibox-title">ヴェノム</span>
+            <p>
+              世間的に悪とされる行動をとるものが所属している組織。所属者を管理する機能はほとんどなく、協力者を見つけるための手段としての機能の方が大きい。もちろん、ヴェノムに所属していない悪人もいる。<br>
+              所属者の体には、所属している証として数字が刻まれるらしい。
+            </p>
+          </div>
+      </div>
+
+      <div class="world-card">
+        <div class="box-title">龍神について</div>
+          <div class="mini-box">
+            <span class="minibox-title">共生まれと再憑依</span>
+            <p>
+              ・<span style="font-weight: bold;">共生まれ</span>…依代とする人間が生まれると同時に生まれる龍神のこと。世の中のほとんどの龍神はこっち。<br>
+              ・<span style="font-weight: bold;">再憑依</span>​…依代である人間が死んだ際に消えずに残り、新たな依代を見つけて再度憑依した状態。消えずに残ることは稀なため、極少数派。<br>
+            </p>
+          </div>
+          <div class="mini-box">
+            <span class="minibox-title">神名</span>
+            <p>人前で使う名とは別に、神としての名である｢神名｣を持つ。神名は最上位の呪文のような役割も持ち、強大なエネルギーを放つことができる。</p>
+          </div>
+          <div class="mini-box">
+            <span class="minibox-title">行動可能範囲</span>
+            <p>依代としている人間から遠く離れるほど出せる力は弱くなり、離れすぎると姿を保てなくなる。龍神の強さによって行動可能範囲は異なるが、およそ500m〜1kmほど。</p>
+          </div>
+          <div class="mini-box">
+            <span class="minibox-title">姿</span>
+            <p>力の強さによって、とれる姿の最大の大きさが違う。また、人型になるにはそれなりの力が必要なため、人型＝簡単に手出しできないという指標にもなっている。</p>
+          </div>
+      </div>
+
+      <div class="world-card">
+        <div class="box-title">母なる龍</div>
+        <p>
+          龍神たちを生み出しているという存在で、龍神の中でもその存在を知っているのはひと握り。その正体は本物の神。この世界と人間を創り出した創造主が居なくなったため、代わりに世界を見守り維持している。<br>
+          力のない人間に人智を超えた存在を与えるという形で人間を守っており、人間たちの呼ぶ｢龍神｣は厳密には神ではない。
+        </p>
+      </div>
+    </div>
+
+    <div id="panel-chars" role="tabpanel" aria-labelledby="tab-chars">
+      <!-- パネル：キャラクター -->
+      <section class="char-section" id="charRoot" data-json="data/ryukotochara.json">
+        <!-- JSで挿入 -->
+      </section>
+    </div>  
+
+    <!-- モーダル（ポップアップ） -->
+    <div class="modal" id="charModal" hidden>
+      <div class="modal__overlay" data-close></div>
+      <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="charTitle">
+        <button class="modal__close" type="button" aria-label="閉じる" data-close>×</button>
+        <div class="modal__content">
+          <article class="profile" id="charProfile">
+            <!-- 上段：画像＋基本情報 -->
+            <div class="profile__header">
+              <figure class="profile__portrait">
+                <img id="pImg" alt="" width="280" height="280">
+              </figure>
+
+              <div class="profile__meta">
+                <h3 class="profile__name-ja" id="pNameJp">名前</h3>
+                <div class="profile__name-en" id="pNameEn">Name</div>
+
+                <h4 class="profile__label">Personal Data</h4>
+                <dl class="profile__dl">
+                  <div><dt>性別：</dt><dd id="pSex"></dd></div>
+                  <div><dt>年齢：</dt><dd id="pAge"></dd></div>
+                  <div><dt>身長：</dt><dd id="pHeight"></dd></div>
+                  <div><dt>一人称：</dt><dd id="pFirst"></dd></div>
+                  <div><dt>二人称：</dt><dd id="pSecond"></dd></div>
+                  <div><dt id="pGod"></dt><dd id="pNameGod"></dd></div>
+                </dl>
+              </div>
+            </div>
+
+            <hr class="profile__divider">
+
+            <!-- 下段：概要パネル（必要に応じて増やせる） -->
+            <section class="section-card">
+              <h4 class="section-card__title">概要</h4>
+              <div class="section-card__body" id="pDetails">
+                <!-- テキストが入る -->
+              </div>
+            </section>
+
+            <section class="section-card">
+              <h4 class="section-card__title">サンプルボイス</h4>
+              <div class="section-card__body" id="pVoice">
+                <!-- テキストが入る -->
+              </div>
+            </section>
+
+            <section class="section-card">
+              <h4 class="section-card__title" id="pT1"></h4>
+              <div class="section-card__body" id="pN1">
+                <!-- テキストが入る -->
+              </div>
+            </section>
+            <section class="section-card">
+              <h4 class="section-card__title" id="pT2"></h4>
+              <div class="section-card__body" id="pN2">
+                <!-- テキストが入る -->
+              </div>
+            </section>
+
+            <section class="section-card">
+              <h4 class="section-card__title">関係</h4>
+              <div class="section-card__body" id="pLink">
+                <!-- テキストが入る -->
+              </div>
+            </section>
+            <section class="profile-gallery" id="pGallery" hidden aria-label="Image gallery">
+              <div class="profile-gallery__stage">
+                <button class="profile-gallery__arrow profile-gallery__arrow--prev" id="pGalleryPrev" type="button" aria-label="Previous image">&lsaquo;</button>
+                <figure class="profile-gallery__figure">
+                  <img class="profile-gallery__image" id="pGalleryImg" alt="">
+                  <figcaption class="profile-gallery__caption" id="pGalleryCaption" hidden></figcaption>
+                </figure>
+                <button class="profile-gallery__arrow profile-gallery__arrow--next" id="pGalleryNext" type="button" aria-label="Next image">&rsaquo;</button>
+              </div>
+              <div class="profile-gallery__dots" id="pGalleryDots" aria-label="Image position"></div>
+            </section>
+
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="space-vertical"></div>
+  <button id="scrollTopBtn">▲</button>
+  <div id="footer-slot" class="u-invis footer-reserve" data-include="footer.html"></div>
+</body>
+
+</html>
+

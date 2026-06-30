@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ja"> 
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1"> <!--幅を端末に合わせる-->
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/worldbase.css">
+  <link rel="stylesheet" href="../css/mmbase.css">
+  <title>WORLD｜MissingMemory</title>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/tabs.js" defer></script>
+</head>
+
+<body>
+  <!-- 初回は見えないけど“高さだけ”は確保しておく -->
+  <div id="header-slot" class="u-invis header-reserve" data-include="header.html"></div>
+
+  <div class="pagebar">
+    <p class="worldnameFurigana">ミッシング　メモリー</p>
+    <h1 class="worldname">Missing Memory</h1>
+    <h3 class="sent">失せ物は闇の掌に</h3>
+  </div>
+
+  <section class="tabs" data-tabs id="world-characters">
+    <!-- タブ見出し -->
+    <div class="tabs__list" role="tablist" aria-label="世界とキャラ切替">
+      <button role="tab" id="tab-world" aria-controls="panel-world" aria-selected="true">
+        世界設定
+      </button>
+      <button role="tab" id="tab-chars" aria-controls="panel-chars" aria-selected="false">
+        キャラクター
+      </button>
+    </div>
+
+    <!-- パネル：世界設定 -->
+    <div id="panel-world" role="tabpanel" aria-labelledby="tab-world">
+      <div class="world-card">
+        <div class="box-title">序章</div>
+        <p>
+          "彼"は言った。<br>
+          「失ったものを取り戻させてあげよう」と。<br><br>
+          失くしたものを求める者たちは、"彼"の言葉を信じ、"彼"の求める"対価"を払い続ける。例え悪に手を染め、自らの命を危険に晒すことになろうとも。
+        </p>
+      </div>
+
+      <div class="world-card">
+        <div class="box-title">概要</div>
+        <p>
+          失ったものを取り戻させてやろうと言った"彼"を「主人」と呼び、主人に"対価"を払う者たちの属する組織を「クリミナル」と呼んだ。<br>
+          主人の指示に従い、クリミナルの者たちは裏社会をかき回し、時には表にも爪痕を残していく。
+        </p>
+      </div>
+
+      <div class="world-card">
+        <div class="box-title">罪の楔</div>
+        <p>
+          主人がクリミナルの者たちに与える能力で、動物や植物の特徴を得ることができる。非常に強力であり、クリミナルが様々な組織から一目置かれる所以でもある。<br>
+          ただ、本来無いものを無理やり植え付けているため、時間とともに体が蝕まれ破滅に向かっていく。クリミナルの者たちはこれを知らず、主人も「使いすぎには気を付けて」としか言っていない。
+        </p>
+      </div>
+
+      <div class="world-card">
+        <div class="box-title">"彼"と"対価"</div>
+        <p>
+          "彼"について知る者はおらず、正体も目的も謎。クリミナルに連絡するときは電子機器から音声が聞こえるのみ。<br>
+          "対価"については、"彼"は「物語」と呼んだり「星」と呼んだりする。人助けや罪人を懲らしめるといった善行から、誰かを殺す、物を盗み出すなどの悪行まで様々。
+        </p>
+      </div>
+
+      <div class="world-card">
+        <p class="MMfont">
+          わたしはこのせかいをつくり みまもっているかみだ<br>
+          ひととあそんでいたら わるいものにちからをもっていかれた<br>
+          はらがたったけど せかいはこわしたくないから じみちにちからをとりもどしてる<br>
+          くりみなるのこたちは とってもじゅうじゅんで つかいやすくて そしてかわいい<br>
+          ​わたしはかれらがすきだ きみたちだけにとくべつなものをあげるから かぎりあるいのちを たのしんでね
+        </p>
+      </div>
+    </div>
+
+    <div id="panel-chars" role="tabpanel" aria-labelledby="tab-chars">
+      <!-- パネル：キャラクター -->
+      <section class="char-section" id="charRoot" data-json="data/mmchara.json">
+        <!-- JSで挿入 -->
+      </section>
+    </div>  
+
+    <!-- モーダル（ポップアップ） -->
+    <div class="modal" id="charModal" hidden>
+      <div class="modal__overlay" data-close></div>
+      <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="charTitle">
+        <button class="modal__close" type="button" aria-label="閉じる" data-close>×</button>
+        <div class="modal__content">
+          <article class="profile" id="charProfile">
+            <!-- 上段：画像＋基本情報 -->
+            <div class="profile__header">
+              <figure class="profile__portrait">
+                <img id="pImg" alt="" width="280" height="280">
+              </figure>
+
+              <div class="profile__meta">
+                <h3 class="profile__name-ja" id="pNameJp">名前</h3>
+                <div class="profile__name-en" id="pNameEn">Name</div>
+
+                <h4 class="profile__label">Personal Data</h4>
+                <dl class="profile__dl">
+                  <div><dt>性別：</dt><dd id="pSex"></dd></div>
+                  <div><dt>年齢：</dt><dd id="pAge"></dd></div>
+                  <div><dt>身長：</dt><dd id="pHeight"></dd></div>
+                  <div><dt>一人称：</dt><dd id="pFirst"></dd></div>
+                  <div><dt>二人称：</dt><dd id="pSecond"></dd></div>
+                </dl>
+              </div>
+            </div>
+
+            <hr class="profile__divider">
+
+            <!-- 下段：概要パネル（必要に応じて増やせる） -->
+            <section class="section-card">
+              <h4 class="section-card__title">概要</h4>
+              <div class="section-card__body" id="pDetails">
+                <!-- テキストが入る -->
+              </div>
+            </section>
+
+            <section class="section-card">
+              <h4 class="section-card__title">サンプルボイス</h4>
+              <div class="section-card__body" id="pVoice">
+                <!-- テキストが入る -->
+              </div>
+            </section>
+
+            <section class="section-card">
+              <h4 class="section-card__title" id="pT1"></h4>
+              <div class="section-card__body" id="pN1">
+                <!-- テキストが入る -->
+              </div>
+            </section>
+            <section class="section-card">
+              <h4 class="section-card__title" id="pT2"></h4>
+              <div class="section-card__body" id="pN2">
+                <!-- テキストが入る -->
+              </div>
+            </section>
+
+            <section class="section-card">
+              <h4 class="section-card__title">関係</h4>
+              <div class="section-card__body" id="pLink">
+                <!-- テキストが入る -->
+              </div>
+            </section>
+
+            <section class="section-card">
+              <h4 class="section-card__titletip">"彼"のひとこと</h4>
+              <div class="section-card__bodytip" id="pTip">
+                <!-- テキストが入る -->
+              </div>
+            </section>
+            <section class="profile-gallery" id="pGallery" hidden aria-label="Image gallery">
+              <div class="profile-gallery__stage">
+                <button class="profile-gallery__arrow profile-gallery__arrow--prev" id="pGalleryPrev" type="button" aria-label="Previous image">&lsaquo;</button>
+                <figure class="profile-gallery__figure">
+                  <img class="profile-gallery__image" id="pGalleryImg" alt="">
+                  <figcaption class="profile-gallery__caption" id="pGalleryCaption" hidden></figcaption>
+                </figure>
+                <button class="profile-gallery__arrow profile-gallery__arrow--next" id="pGalleryNext" type="button" aria-label="Next image">&rsaquo;</button>
+              </div>
+              <div class="profile-gallery__dots" id="pGalleryDots" aria-label="Image position"></div>
+            </section>
+
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="space-vertical"></div>
+  <button id="scrollTopBtn">▲</button>
+  <div id="footer-slot" class="u-invis footer-reserve" data-include="footer.html"></div>
+</body>
+
+</html>
+
